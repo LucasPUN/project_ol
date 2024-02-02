@@ -1,6 +1,7 @@
 import {Checkbox, Container} from "@mui/joy";
 import QuestionRow from "./component/QuestionRow.tsx";
 import AnswerRow from "./component/AnswerRow.tsx";
+import TopNavBar from "../../component/TopNavBar.tsx";
 
 
 export default function ContestPage(){
@@ -21,7 +22,7 @@ export default function ContestPage(){
                     <QuestionRow />
                     <AnswerRow index={index} />
                     <Container>
-                        <Checkbox defaultChecked />
+                        <Checkbox/>
                     </Container>
                 </Container>
             ))}
@@ -32,6 +33,7 @@ export default function ContestPage(){
 
     return(
         <>
+            <TopNavBar/>
             <RenderQuestion/>
         </>
     )
