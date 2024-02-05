@@ -1,6 +1,7 @@
 import './App.css'
 import {Container} from "@mui/joy";
-import DashboardPage from "./ui/page/DashboardPage";
+import {RouterProvider} from "react-router-dom";
+import {router} from "./config/ReactRrouterConfig.tsx";
 
 function App() {
 
@@ -8,7 +9,7 @@ function App() {
   return (
     <>
         <Container>
-        <DashboardPage/>
+            <RouterProvider router={router}/>
         </Container>
     </>
   )
