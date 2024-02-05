@@ -36,5 +36,4 @@ You are given an integer \`income\` representing the amount of money you earned.
 - All the values of upperi are unique.
 - The upper bound of the last tax bracket is greater than or equal to income.
 `;
-
 export default questionText;

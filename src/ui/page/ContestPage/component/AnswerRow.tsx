@@ -21,7 +21,7 @@ export default function AnswerRow({index}: Props) {
                     style={{
                         margin: '1vw',
                         width: '40vw',
-                        height: '25vw' }}
+                        height: '60vh' }}
                     value={textareaValue}
                     onChange={handleTextareaValueChange}
                 />

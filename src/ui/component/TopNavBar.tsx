@@ -6,12 +6,13 @@ import {faCircleUser} from "@fortawesome/free-solid-svg-icons";
 export default function TopNavBar(){
     return (
         <>
+
             <AppBar
                 position="sticky"
                 style={{
                     backgroundColor: '#8AC453',
-                    width: "100vw",
-                    height: "4vw"
+                    width: "98.7vw",
+                    height: "10vh"
             }}
 
             >
