@@ -2,9 +2,12 @@ import {Checkbox, Container} from "@mui/joy";
 import QuestionRow from "./component/QuestionRow.tsx";
 import AnswerRow from "./component/AnswerRow.tsx";
 import TopNavBar from "../../component/TopNavBar.tsx";
+import {useContext} from "react";
+import {LoginUserContext} from "../../../App.tsx";
 
 
 export default function ContestPage() {
+    const loginUser = useContext(LoginUserContext);
 
     const RenderQuestion = () => (
         <div style={{
