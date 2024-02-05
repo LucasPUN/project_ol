@@ -2,7 +2,7 @@ import {Container, Textarea} from "@mui/joy";
 import {useState} from "react";
 
 type Props = {
-    index: number;
+    index: number,
 }
 
 export default function AnswerRow({index}: Props) {
@@ -15,16 +15,17 @@ export default function AnswerRow({index}: Props) {
     return (
         <>
             <Container>
-                <Textarea
-                    color="neutral"
-                    placeholder={`QUESTION ${index + 1}`}
-                    style={{
-                        margin: '1vw',
-                        width: '40vw',
-                        height: '60vh' }}
-                    value={textareaValue}
-                    onChange={handleTextareaValueChange}
-                />
+                    <Textarea
+                        color="neutral"
+                        placeholder={`QUESTION ${index + 1}`}
+                        style={{
+                            margin: "1vw",
+                            width: "40vw",
+                            height: "60vh",
+                        }}
+                        value={textareaValue}
+                        onChange={handleTextareaValueChange}
+                    />
             </Container>
         </>
     )
