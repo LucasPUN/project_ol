@@ -3,9 +3,7 @@ import React from "react";
 import { AxisOptions, Chart } from "react-charts";
 import {Container} from "@mui/joy";
 
-
-
-export default function BarHorizontalStacked() {
+export default function DashboardPage() {
     const { data} = useDemoConfig({
         series: 3,
         dataType: "ordinal",

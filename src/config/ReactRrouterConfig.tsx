@@ -1,6 +1,6 @@
 import ContestPage from "../ui/page/ContestPage";
-import BarHorizontalStacked from "../ui/page/DashboardPage";
 import {createBrowserRouter} from "react-router-dom";
+import DashboardPage from "../ui/page/DashboardPage";
 
 export const router = createBrowserRouter([
     {
@@ -9,6 +9,6 @@ export const router = createBrowserRouter([
     },
     {
         path: "/dashboard",
-        element: <BarHorizontalStacked/>
+        element: <DashboardPage/>
     }
 ])

@@ -1,10 +1,17 @@
 import {Container, Textarea} from "@mui/joy";
+import {useState} from "react";
 
 type Props = {
     index: number;
 }
 
 export default function AnswerRow({index}: Props) {
+    const [textareaValue, setTextareaValue] = useState<string>("")
+
+    const handleTextareaValueChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setTextareaValue(event.target.value);
+    }
+
     return (
         <>
             <Container>
@@ -15,6 +22,8 @@ export default function AnswerRow({index}: Props) {
                         margin: '1vw',
                         width: '40vw',
                         height: '25vw' }}
+                    value={textareaValue}
+                    onChange={handleTextareaValueChange}
                 />
             </Container>
         </>
