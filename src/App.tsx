@@ -1,6 +1,6 @@
 import './App.css'
-import ContestPage from "./ui/page/ContestPage";
 import {Container} from "@mui/joy";
+import DashboardPage from "./ui/page/DashboardPage";
 
 function App() {
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <>
         <Container>
-        <ContestPage/>
+        <DashboardPage/>
         </Container>
     </>
   )
