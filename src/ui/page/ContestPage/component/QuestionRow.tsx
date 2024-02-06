@@ -3,16 +3,21 @@ import questionText from "./QuestionText";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 
+type UpdateColorValue = {
+    color: string;
+    updateColor: (newValue: string) => void;
+}
 
 type Props = {
     checked: boolean;
+    colorValue: UpdateColorValue;
 }
 
-export default function QuestionRow({checked}: Props) {
+export default function QuestionRow({checked,colorValue}: Props) {
+
     return (
         <>
             <Container>
-                {checked ? (
                     <Typography
                         sx={{
                             margin: '1vw',
@@ -20,23 +25,10 @@ export default function QuestionRow({checked}: Props) {
                             width: '40vw',
                             maxHeight: '60vh',
                             overflow: 'auto',
-                            color : '#8AC453'
+                            color : checked? colorValue.color : 'neutral'
                         }}>
                         <ReactMarkdown rehypePlugins={[rehypeRaw]} children={questionText}/>
                     </Typography>
-                ) : (
-                    <Typography
-                        color="neutral"
-                        sx={{
-                            margin: '1vw',
-                            padding: '1vw',
-                            width: '40vw',
-                            maxHeight: '60vh',
-                            overflow: 'auto',
-                        }}>
-                        <ReactMarkdown rehypePlugins={[rehypeRaw]} children={questionText}/>
-                    </Typography>
-                )}
             </Container>
         </>
     );

@@ -1,54 +1,48 @@
-import useDemoConfig from "./useDemoConfig";
-import React from "react";
-import { AxisOptions, Chart } from "react-charts";
-import {Container} from "@mui/joy";
+import React from 'react';
+import {
+    BarChart,
+    XAxis,
+    YAxis,
+    Tooltip,
+    ResponsiveContainer,
+    Bar,
+} from 'recharts';
 
-export default function DashboardPage() {
-    const { data} = useDemoConfig({
-        series: 3,
-        dataType: "ordinal",
-    });
+interface IDashboardView {
+    dashboard: any; // Adjust the type accordingly
+    onDashboardItemClick: () => void; // Adjust the type accordingly
+}
 
-    const primaryAxis = React.useMemo<
-        AxisOptions<typeof data[number]["data"][number]>
-    >(
-        () => ({
-            position: "left",
-            getValue: (datum) => datum.primary,
-        }),
-        []
-    );
+const DashboardView: React.FC<IDashboardView> = ({ dashboard, onDashboardItemClick }) => {
+    const data = [
+        { name: 'NE Send', completed: 230, failed: 335, inprogress: 453 },
+        { name: 'NE Resend', completed: 335, failed: 330, inprogress: 345 },
+        { name: 'Miles Orchestrator', completed: 537, failed: 243, inprogress: 2110 },
+        { name: 'Commissions Payment Orch', completed: 132, failed: 328, inprogress: 540 },
+        { name: 'Business Integrators', completed: 530, failed: 145, inprogress: 335 },
+        { name: 'SmartTrack', completed: 538, failed: 312, inprogress: 110 },
+    ];
 
-    const secondaryAxes = React.useMemo<
-        AxisOptions<typeof data[number]["data"][number]>[]
-    >(
-        () => [
-            {
-                position: "bottom",
-                getValue: (datum) => datum.secondary,
-                stacked: true,
-            },
-        ],
-        []
-    );
+    const CustomizedLabel: React.FC<{ x: number, y: number, value: number, dataKey: string }> = ({ x, y, value, dataKey }) => {
+        const fullValue = value; //(value[1] - value[0]);
+        return <text x={x - 20} y={y + 5} dy={0} fontSize='12' fill="#FFFFFF" fontWeight="Bold" textAnchor="start">{fullValue}</text>;
+    };
 
     return (
-        <>
-            <br />
-                <Container
-                style={{
-                    width: "80vw",
-                    height: "80vw"
-                }}>
-                <Chart
-                    options={{
-                        data,
-                        primaryAxis,
-                        secondaryAxes,
-                    }}
-                />
-                </Container>
-
-        </>
+        <div className="content c-white">
+            <h1>Dashboard</h1>
+            <ResponsiveContainer height={250} width={'100%'}>
+                <BarChart layout="vertical" data={data} margin={{ left: 50, right: 50 }} stackOffset="expand">
+                    <XAxis hide type="number" />
+                    <YAxis type="category" dataKey="name" stroke="#dd7876" fontSize="12" />
+                    <Tooltip />
+                    <Bar dataKey="failed" fill="#dd7876" stackId="a" label={<CustomizedLabel />} />
+                    <Bar dataKey="completed" fill="#82ba7f" stackId="a" label={<CustomizedLabel />} />
+                    <Bar dataKey="inprogress" fill="#76a8dd" stackId="a" label={<CustomizedLabel />} />
+                </BarChart>
+            </ResponsiveContainer>
+        </div>
     );
-}
+};
+
+export default DashboardView;
