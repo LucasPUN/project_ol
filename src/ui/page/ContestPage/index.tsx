@@ -15,6 +15,8 @@ export default function ContestPage() {
     const [checkedStates, setCheckedStates] = useState<boolean[]>(Array.from({ length: 3 }, () => false));
     const [color,setColor] = useState<string>("neutral")
 
+
+
     const handleCheckboxChange = (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
         const newCheckedStates = [...checkedStates];
         newCheckedStates[index] = event.target.checked;
